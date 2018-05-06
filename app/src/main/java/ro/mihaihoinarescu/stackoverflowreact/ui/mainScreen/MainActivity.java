@@ -1,7 +1,7 @@
-package ro.mihaihoinarescu.ui.mainScreen;
+package ro.mihaihoinarescu.stackoverflowreact.ui.mainScreen;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import ro.mihaihoinarescu.stackoverflowreact.R;
 

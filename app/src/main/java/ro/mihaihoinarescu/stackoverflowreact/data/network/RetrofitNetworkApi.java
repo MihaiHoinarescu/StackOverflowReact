@@ -3,8 +3,7 @@ package ro.mihaihoinarescu.stackoverflowreact.data.network;
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableTransformer;
+import io.reactivex.Flowable;
 import io.reactivex.functions.Function;
 import ro.mihaihoinarescu.stackoverflowreact.data.network.data.ApiResult;
 import ro.mihaihoinarescu.stackoverflowreact.data.network.mapper.UserResponseMapper;
@@ -20,8 +19,9 @@ public class RetrofitNetworkApi implements NetworkApi {
     }
 
     @Override
-    public Observable<List<User>> getUsers(Map<String, String> options) {
-        return requests.getUsers(options).map(new QuotaCheckMapper())
+    public Flowable<List<User>> getUsers(Map<String, String> options) {
+        return requests.getUsers(options)
+                .map(new QuotaCheckMapper())
                 .map(new UserResponseMapper());
     }
 

@@ -5,8 +5,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
-import io.reactivex.functions.Function;
+import io.reactivex.Flowable;
 import ro.mihaihoinarescu.stackoverflowreact.data.network.NetworkApi;
 import ro.mihaihoinarescu.stackoverflowreact.domain.model.User;
 
@@ -20,14 +19,9 @@ public class GetUsers extends UseCase<GetUsers.RequestModel, GetUsers.ResponseMo
     }
 
     @Override
-    Observable<ResponseModel> execute(RequestModel requestModel) {
+    public Flowable<ResponseModel> execute(RequestModel requestModel) {
 
-        return networkApi.getUsers(requestModel.options).map(new Function<List<User>, ResponseModel>() {
-            @Override
-            public ResponseModel apply(List<User> users) throws Exception {
-                return new ResponseModel(users);
-            }
-        });
+        return networkApi.getUsers(requestModel.options).map(ResponseModel::new);
     }
 
     public static final class RequestModel implements UseCase.RequestModel {

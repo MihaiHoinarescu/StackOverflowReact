@@ -1,4 +1,4 @@
-package ro.mihaihoinarescu.ui.mainScreen;
+package ro.mihaihoinarescu.stackoverflowreact.ui.mainScreen;
 
 import dagger.Module;
 

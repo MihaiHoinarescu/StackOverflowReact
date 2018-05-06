@@ -1,4 +1,4 @@
-package ro.mihaihoinarescu.ui.util;
+package ro.mihaihoinarescu.stackoverflowreact.ui.util;
 
 public interface BasePresenter<T extends BaseView> {
 

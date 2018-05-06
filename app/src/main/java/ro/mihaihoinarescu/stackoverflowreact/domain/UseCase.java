@@ -1,10 +1,10 @@
 package ro.mihaihoinarescu.stackoverflowreact.domain;
 
-import io.reactivex.Observable;
+import io.reactivex.Flowable;
 
 public abstract class UseCase <T extends UseCase.RequestModel, R extends UseCase.ResponseModel> {
 
-    abstract Observable<R> execute(T requestModel);
+    abstract Flowable<R> execute(T requestModel);
 
     public interface RequestModel {
 
